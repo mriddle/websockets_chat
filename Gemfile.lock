@@ -9,7 +9,6 @@ GEM
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.1.0)
     eventmachine (1.0.0)
-    github-markdown (0.5.3)
     haml (3.1.7)
     highline (1.6.15)
     hike (1.2.1)
@@ -55,7 +54,6 @@ PLATFORMS
 
 DEPENDENCIES
   capistrano
-  github-markdown
   haml
   newrelic_rpm
   sass
