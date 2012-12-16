@@ -1,20 +1,5 @@
-Basic Sinatra template
-====
+Simple chat app made with HTML5 WebSockets.
 
-**Inlcudes**
+**Currently under construction**
 
-- NewRelic
-- Capistrano
-- Chef-solo
-- Sprockets / Asset-pipeline
-- Twitter Bootstrap
-- SASS
-- HAML
-
-Fork and enjoy!
-
- - Update site_config.yml
- - Create secretes.yml with newrelic license key
- - `bundle install && rackup`
- - Tweak, push & `cap deploy`
 
