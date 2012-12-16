@@ -8,8 +8,9 @@
     %link{rel: 'stylesheet', href: asset_path('application.css'), type: 'text/css'}
   %body
     .ribbon-wrapper
-      .ribbon.success
-        &nbsp;
+      %a{:id => "blog_link", :href => "http://mriddle.com"}
+        .ribbon.success
+          Blog
     #content
       .container
         .row-fluid
