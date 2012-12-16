@@ -16,12 +16,32 @@
         .row-fluid
           .span3
             .well.sidebar-nav
+              %p
+                Simple chat app made with HTML5 WebSockets.
+                %br
+                %b Currently under construction
+              %br
               %ul.nav.nav-list
                 %li.nav-header
-                  Links
-                %li.linked_in
-                  %a{:href => "#", :target => "_blank"} Go here
+                  Inspiration
+                %li YOW!2012
+                %li
+                  %a{:href => "https://github.com/AustenConrad/sinatra-websocket-rack-example"} AustenConrad's Example
+                %li
+                  %a{:href => "http://aaltowebapps.com/websocketsChatEM.htm"} aaltowebapps Example
+                %li
+                  %a{:href => "https://github.com/igrigorik/em-websocket"} em-websocket
+                %li
+                  %a{:href => "https://github.com/simulacre/sinatra-websocket"} sinatra-websocket
+                %li
+                  %a{:href => "https://github.com/imanel/websocket-rack"} websocket-rack
+                %li
+                  %a{:href => "https://github.com/faye/faye-websocket-ruby"} faye-websocket-ruby
+                %li
+                  %a{:href => "https://github.com/amscotti/em_sinatra_chat"} em_sinatra_chat
+
           .span9
             = yield
-
+    %script{:type => "text/javascript", :src  => asset_path('vendor.js')}
+    %script{:type => "text/javascript", :src  => asset_path('application.js')}
   = NewRelic::Agent.browser_timing_footer rescue ""

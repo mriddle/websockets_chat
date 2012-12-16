@@ -8,11 +8,18 @@ GEM
       net-sftp (>= 2.0.0)
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.1.0)
+    coffee-script (2.2.0)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.4.0)
     eventmachine (1.0.0)
+    execjs (1.4.0)
+      multi_json (~> 1.0)
     haml (3.1.7)
     highline (1.6.15)
     hike (1.2.1)
     kgio (2.7.4)
+    multi_json (1.5.0)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-sftp (2.0.5)
@@ -54,6 +61,7 @@ PLATFORMS
 
 DEPENDENCIES
   capistrano
+  coffee-script
   haml
   newrelic_rpm
   sass
