@@ -1,0 +1,57 @@
+$blue-light: #11B6FF
+$blue-dark: #09D
+
+$green-light: #bfdc7a
+$green-dark: #8ebf45
+
+$navy-light: #4A76A6
+$navy-dark: #3A5D83
+
+$color-light-shade: $navy-light
+$color-dark-shade: $navy-dark
+
+$font-color: white
+
+.ribbon-wrapper
+  width: 85px
+  height: 88px
+  overflow: hidden
+  position: absolute
+  top: -3px
+  right: -3px
+  z-index: 9999
+
+.ribbon
+  font: bold 15px Sans-Serif
+  color: $font-color
+  text-align: center
+  text-shadow: rgba(255, 255, 255, 0.5) 0px 1px 0px
+  -webkit-transform: rotate(45deg)
+  -moz-transform: rotate(45deg)
+  -ms-transform: rotate(45deg)
+  -o-transform: rotate(45deg)
+  position: relative
+  padding: 7px 0
+  left: -5px
+  top: 15px
+  width: 120px
+  background-color: $color-light-shade
+  background-image: -webkit-gradient(linear, left top, left bottom, from($color-light-shade), to($color-dark-shade))
+  background-image: -webkit-linear-gradient(top, $color-light-shade, $color-dark-shade)
+  background-image: -moz-linear-gradient(top, $color-light-shade, $color-dark-shade)
+  background-image: -ms-linear-gradient(top, $color-light-shade, $color-dark-shade)
+  background-image: -o-linear-gradient(top, $color-light-shade, $color-dark-shade)
+  -webkit-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3)
+  -moz-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3)
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3)
+  &:before, &:after
+    content: ""
+    border-top: 3px solid #6e8900
+    border-left: 3px solid transparent
+    border-right: 3px solid transparent
+    position: absolute
+    bottom: -3px
+  &:before
+    left: 0
+  &:after
+    right: 0
