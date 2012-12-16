@@ -1,0 +1,55 @@
+server {
+  listen 80 default deferred;
+  server_name  <%= node[:hostname] %>;
+  keepalive_timeout 5;
+
+  root /var/www/current/public;
+
+  if ($host ~* www\.(.*)) {
+    set $host_without_www $1;
+    rewrite ^(.*)$ http://$host_without_www$1 permanent;
+  }
+
+  if ($host ~* (.*)nearyou.com.au) {
+    set $subdomain $1;
+    set $new_domain homehelpnow.com.au;
+    rewrite ^(.*)$ http://$subdomain$new_domain$1 redirect;
+  }
+
+  #immutable assets
+  location ~ '/assets/.*[0-9a-z]{32}\.' {
+    expires max;
+    gzip_static on;
+    add_header Cache-Control public;
+    add_header Last-Modified "";
+    add_header ETag "";
+  }
+
+  #mutable assets
+  location ~ /assets/ {
+    expires 30m;
+    add_header Cache-Control public;
+    add_header Last-Modified "";
+    add_header ETag "";
+  }
+
+  location @app {
+    proxy_set_header     HOST                   $http_host;
+    proxy_set_header     X_REAL_IP              $remote_addr;
+    proxy_set_header     X_FORWARDED_FOR        $proxy_add_x_forwarded_for;
+    proxy_set_header     X-FORWARDED_PROTO      $scheme;
+
+    proxy_set_header     GEOIP_COUNTRY          $geoip_country_code;
+    proxy_set_header     GEOIP_CITY             $geoip_city;
+    proxy_set_header     GEOIP_LAT              $geoip_latitude;
+    proxy_set_header     GEOIP_LONG             $geoip_longitude;
+
+    proxy_redirect off;
+
+    proxy_pass http://app_server;
+  }
+
+  try_files $uri/index.html $uri.html $uri @app;
+
+  error_page 500 502 503 504 /500.html;
+}

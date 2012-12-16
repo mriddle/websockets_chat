@@ -1,0 +1,7 @@
+site:
+  title:       My Website
+  app_name:    my_app
+  app_repo:    git@github.com:mriddle/my_app.git
+  app_server:
+
+  deploy_user: admin

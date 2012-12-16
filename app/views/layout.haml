@@ -1,0 +1,23 @@
+!!! 5
+%html
+  %head
+    = NewRelic::Agent.browser_timing_header rescue ""
+    %title= @site_config["title"]
+    %meta{:name => "viewport", :content => "width=device-width; initial-scale=1.0; maximum-scale=1.0;"}
+    %link{rel: 'stylesheet', href: asset_path('vendor.css'), type: 'text/css'}
+    %link{rel: 'stylesheet', href: asset_path('application.css'), type: 'text/css'}
+  %body
+    #content
+      .container
+        .row-fluid
+          .span3
+            .well.sidebar-nav
+              %ul.nav.nav-list
+                %li.nav-header
+                  Links
+                %li.linked_in
+                  %a{:href => "#", :target => "_blank"} Go here
+          .span9
+            = yield
+
+  = NewRelic::Agent.browser_timing_footer rescue ""

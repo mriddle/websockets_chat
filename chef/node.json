@@ -1,0 +1,12 @@
+{
+  "rails_env": "production",
+
+  "run_list": ["role[blog_runlist]"],
+
+  "kernel": {
+    "shmmax": 4294967296,
+    "shmall": 2097152,
+    "msgmax": 65536,
+    "msgmnb" : 65536
+  }
+}
